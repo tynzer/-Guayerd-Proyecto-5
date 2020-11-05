@@ -9,7 +9,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-               un solo componente muestra el contenido, barner y los textos del home
+               <p> muestra el contenido, banner y los textos del home</p>
                 
             </div>
         );
