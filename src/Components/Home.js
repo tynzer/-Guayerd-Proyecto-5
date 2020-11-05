@@ -10,6 +10,7 @@ class Home extends Component {
         return (
             <div>
                <p> muestra el contenido, banner y los textos del home</p>
+               
                 
             </div>
         );
