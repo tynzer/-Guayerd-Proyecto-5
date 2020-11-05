@@ -3,13 +3,6 @@ import React, { Component } from 'react';
 class ItemProducto extends Component {
     render() {
 
-
-/* 
-priceOff = (producto) => {
-
-} 
- */
-
 const styleOff = {
     color: "white",
     size: "15px",
