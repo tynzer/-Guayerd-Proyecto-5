@@ -28,8 +28,8 @@ class App extends Component {
                 <Header/>
                 <Switch>
                     <Route exact path="/"><Home/></Route>
-                    <Route path="/todos"><Productos productList={this.state.productList} /></Route>
-                    <Route path="/users"><Contacto/></Route>
+                    <Route path="/productos"><Productos productList={this.state.productList} /></Route>
+                    <Route path="/contacto"><Contacto/></Route>
                 </Switch>
                 <Footer/>
             </Router>
