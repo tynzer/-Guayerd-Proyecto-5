@@ -12,11 +12,17 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            productoList: []
+            productList: []
         }
     }
-    
+
     componentDidMount() {
+        fetch("https://guayerd-proyecto3-d.herokuapp.com/productList").then((res) => res.json())
+            .then(
+                (productList) => {
+                    this.setState({ productList: productList });
+                }
+            )
         /*  fetch de productos
          this.setState(productList:productosrecibidosdel fetch) */
     }
@@ -25,13 +31,13 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <Header/>
+                <Header />
                 <Switch>
-                    <Route exact path="/"><Home/></Route>
+                    <Route exact path="/"><Home /></Route>
                     <Route path="/productos"><Productos productList={this.state.productList} /></Route>
-                    <Route path="/contacto"><Contacto/></Route>
+                    <Route path="/contacto"><Contacto /></Route>
                 </Switch>
-                <Footer/>
+                <Footer />
             </Router>
         );
     }
