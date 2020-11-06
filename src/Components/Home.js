@@ -50,8 +50,19 @@ if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por pri
     }
     localStorage.setItem ("decision", decision);
 }
+
+
+
+
+ 
+
+
+
+
+
+
 //      FETCH
-fetch('https://demo2420474.mockable.io/getHomeBanner')
+fetch('https://guayerd-proyecto-5.herokuapp.com/getHomeBanner')
 .then(response=>{
     return response.json();
 })
