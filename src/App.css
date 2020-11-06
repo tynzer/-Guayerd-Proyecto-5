@@ -260,7 +260,10 @@ input[type="reset"] {
   transition-duration: 1s;
 }
 
-
+.error{
+  display: block;
+  color:red;
+}
 
 
 
