@@ -12,12 +12,14 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            productList: []
+            productList: [],
+            URL_ : "https://guayerd-proyecto3-d.herokuapp.com/"
+
         }
     }
 
     componentDidMount() {
-        fetch("https://guayerd-proyecto3-d.herokuapp.com/productList").then((res) => res.json())
+        fetch(`${this.state.URL_}productList`).then((res) => res.json())
             .then(
                 (productList) => {
                     this.setState({ productList: productList });

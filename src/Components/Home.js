@@ -5,7 +5,8 @@ class Home extends Component {
         super(props);
         this.state={
             titulo:"",
-            imagen: ""
+            imagen: "",
+            URL_ : "https://guayerd-proyecto3-d.herokuapp.com/",
         }
 
 
@@ -62,7 +63,7 @@ if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por pri
 
 
 //      FETCH
-fetch('https://guayerd-proyecto-5.herokuapp.com/getHomeBanner')
+fetch(`${this.state.URL_}getHomeBanner`)
 .then(response=>{
     return response.json();
 })
