@@ -1,17 +1,76 @@
-import React, { Component } from 'react';
+import React, { Component, createElement } from 'react';
 
 class Home extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            titulo:"",
+            imagen: ""
+        }
+
 
     }
 
+    componentDidMount(){
+
+let decision = "";//este parámetro se guarda en local storage por unica vez la primera vez que entra
+let nombre = "";
+let email = "";
+
+if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por primera vez
+
+    if (window.confirm("Desea ingresar su nombre y su email")){
+        decision = "si"
+        
+        do{
+            nombre = prompt ("Ingrese su nombre: ");
+            if (nombre != "" && nombre != null){
+                localStorage.setItem ("nombre", nombre);
+                alert ("Nombre guardado correctamente");
+            }
+            else{
+                alert ("No se acepta un campo vacío, vualva a intentarlo por favor");
+            }
+        }while (nombre === "" || nombre === null)
+        
+        do{
+            email = prompt ("Ingrese su email: ");
+            if (email != "" && email.indexOf(".")!==-1 && email.indexOf("@")!==-1 && email != null){
+                localStorage.setItem ("email", email);
+                alert ("Email guardado correctamente");
+            }
+            else{
+                alert ("Ingreso inválido, vualva a intentarlo por favor");
+            }
+        }while (email === "" || email === null)
+
+    }else{
+        decision = "no"
+       
+    }
+    localStorage.setItem ("decision", decision);
+}
+//      FETCH
+fetch('https://demo2420474.mockable.io/getHomeBanner')
+.then(response=>{
+    return response.json();
+})
+.then(response=>{
+    this.setState({titulo: response.title});
+    this.setState({imagen: response.imgUrl});
+    console.log(response.title)
+})
+
+
+}
     render() {
         return (
             <div>
                 <main className="main">
                     <div className="container">
-                        <img src="guayerdBikes-logo.jpg" alt="" />
+                        <h3>T{this.state.titulo}</h3>
+                        <img src={this.state.imagen}></img>
+
                         <h1>Guayerd Bikes</h1>
                         <p> Bill Jobs (1947-2003) fue el fundador de Guayerd Bikes. Un auténtico visionario que decidió
                         dedicar su vida a la bicicleta después de un viaje a EE.UU en los ’70. En dicho viaje Bill
