@@ -4,7 +4,6 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state={
-            titulo:"",
             imagen: "",
             URL_ : "https://guayerd-proyecto3-d.herokuapp.com/",
         }
@@ -68,7 +67,6 @@ fetch(`${this.state.URL_}getHomeBanner`)
     return response.json();
 })
 .then(response=>{
-    this.setState({titulo: response.title});
     this.setState({imagen: response.imgUrl});
     console.log(response.title)
 })
@@ -80,9 +78,7 @@ fetch(`${this.state.URL_}getHomeBanner`)
             <div>
                 <main className="main">
                     <div className="container">
-                        <h3>T{this.state.titulo}</h3>
                         <img src={this.state.imagen}></img>
-
                         <h1>Guayerd Bikes</h1>
                         <p> Bill Jobs (1947-2003) fue el fundador de Guayerd Bikes. Un auténtico visionario que decidió
                         dedicar su vida a la bicicleta después de un viaje a EE.UU en los ’70. En dicho viaje Bill
