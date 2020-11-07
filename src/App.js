@@ -20,6 +20,12 @@ class App extends Component {
 
     componentDidMount() {
 
+        fetch(`${this.state.URL_}productList`).then((res) => res.json())
+            .then(
+                (productList) => {
+                    this.setState({ productList: productList });
+                }
+            )
 
      let aceptaIngresarDatos = false; // este parámetro se guarda en localstorage por unica vez la primera vez que entra
         let nombre = "";
@@ -107,12 +113,6 @@ class App extends Component {
 
 
 
-        fetch(`${this.state.URL_}productList`).then((res) => res.json())
-            .then(
-                (productList) => {
-                    this.setState({ productList: productList });
-                }
-            )
         /*  fetch de productos
          this.setState(productList:productosrecibidosdel fetch) */
     }
