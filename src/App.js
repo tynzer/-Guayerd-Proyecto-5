@@ -97,11 +97,11 @@ class App extends Component {
         }
 
         function validarNombre(parametroNombre) {
-            return (parametroNombre != "" && parametroNombre != null);
+            return (parametroNombre !== "" && parametroNombre != null);
         }
 
         function validarEmail(parametroEmail) {
-            return (parametroEmail != "" && parametroEmail != null && parametroEmail.indexOf(".") !== -1 && parametroEmail.indexOf("@") !== -1);
+            return (parametroEmail !== "" && parametroEmail != null && parametroEmail.indexOf(".") !== -1 && parametroEmail.indexOf("@") !== -1);
         }
     
 
